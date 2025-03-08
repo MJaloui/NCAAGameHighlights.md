@@ -358,26 +358,28 @@ docker run --env-file .env highlight-processor
 
 
 
+---
 
 
 
-    
-
-### **What We Learned**
-1. Working with Docker and AWS Services
-2. Identity Access Management (IAM) and least privilege
-3. How to enhance media quality 
-
-### **Future Enhancements**
-1. Using Terraform to enhance the Infrastructure as Code (IaC)
-2. Increasing the amount of videos process and converted with AWS Media Convert
-3. Change the date from static (specific point in time) to dyanmic (now, last 30 days from today's date,etc)
-
-# Part 2 - Terraform Bonus
+# Part 2 - Terraform Addition
 
 ### **Setup terraform.tfvars File**
-1. In the github repo, there is a resources folder and copy the entire contents
+
+
+1. In the github MJaloui, repo "NCAAGameHighlights.md", there is a resources folder. Copy the entire contents.
+
+![image](https://github.com/user-attachments/assets/5a2444bf-e81b-4b1a-aa79-5f9b1bb8f3bd)
+
+
 2. In the AWS Cloudshell or vs code terminal, create the file vpc_setup.sh and paste the script inside.
+
+```bash
+nano vpc_setup.sh
+```
+
+
+
 3. Run the script
 ```bash
 bash vpc_setup.sh
