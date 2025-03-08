@@ -328,7 +328,7 @@ docker run --env-file .env highlight-processor
      
   - **This will run fetch.py, process_one_video.py and mediaconvert_process.py and the following files should be saved in your S3 bucket:**
 
-  - Optional - Confirm there is a video uploaded to s3://<your-bucket-name>/videos/first_video.mp4
+    - Optional - Confirm there is a video uploaded to s3://<your-bucket-name>/videos/first_video.mp4
 
 ![image](https://github.com/user-attachments/assets/9f90a33d-3580-44db-bc50-a2440d9af873)
 
@@ -336,8 +336,27 @@ docker run --env-file .env highlight-processor
 
 ![image](https://github.com/user-attachments/assets/a893ea1e-9786-46c6-bb89-dd160b35e864)
 
+![image](https://github.com/user-attachments/assets/5dcbc5b0-6946-4652-a090-b4ee736df16f)
 
-  - Optional - Confirm there is a video uploaded to s3://<your-bucket-name>/processed_videos/
+![image](https://github.com/user-attachments/assets/f3a92813-d3b1-4d78-98ad-c95b3c857a79)
+
+![image](https://github.com/user-attachments/assets/95418d5f-1066-4186-a957-3302da507a45)
+ 
+  
+  
+  
+  
+  - Optional - Confirm there is a JSON file filled with highlight links, uploaded to s3://<your-bucket-name>/highlights/baseketball_highlights.json. Go back to objects.
+
+
+![image](https://github.com/user-attachments/assets/8ca3e28d-46f9-48ee-89e8-a1b4bdc1b23b)
+
+
+
+
+
+
+    
 
 ### **What We Learned**
 1. Working with Docker and AWS Services
