@@ -263,36 +263,81 @@ Edit the Trust Policy.
 
  
 ## **Step 4: Update .env file**
-1. RapidAPI_KEY: Ensure that you have successfully created the account and select "Subscribe To Test" in the top left of the Sports Highlights API
-2. AWS_ACCESS_KEY_ID=your_aws_access_key_id_here
-3. AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key_here
-4. S3_BUCKET_NAME=your_S3_bucket_name_here
-5. MEDIACONVERT_ENDPOINT=https://your_mediaconvert_endpoint_here.amazonaws.com
+
+  - Enter this command and copy the output for mediaconvert endpoints, number 7 below.
+
 ```bash
 aws mediaconvert describe-endpoints
 ```
-7. MEDIACONVERT_ROLE_ARN=arn:aws:iam::your_account_id:role/HighlightProcessorRole
 
-## **Step 5: Secure .env file**
+![image](https://github.com/user-attachments/assets/938a2ffd-a1b8-4f52-b2c0-45d7de5744e2)
+
+  - Edit .env file with the command below.
+    
+```bash
+nano .env
+```
+
+1. API_URL=https://sport-highlights-api.p.rapidapi.com/basketball/highlights
+2. RAPIDAPI_HOST=sport-highlights-api.p.rapidapi.com
+3. RAPIDAPI_KEY=your_rapidapi_key_here
+4. AWS_ACCESS_KEY_ID=your_aws_access_key_id_here
+5. AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key_here
+6. S3_BUCKET_NAME=your_S3_bucket_name_here
+7. MEDIACONVERT_ENDPOINT=https://your_mediaconvert_endpoint_here.amazonaws.com
+8. MEDIACONVERT_ROLE_ARN=arn:aws:iam::your_account_id:role/YourMediaConvertRole
+
+![image](https://github.com/user-attachments/assets/fdd89b8f-47f5-4f2f-8b51-5c3c8aea9862)
+
+
+
+
+## **Step 5: Secure .env file with read and write permissons to the owner**
+
 ```bash
 chmod 600 .env
 ```
-## **Step 6: Locally Buikd & Run The Docker Container**
+
+![image](https://github.com/user-attachments/assets/569aaf36-32e2-412b-b99c-636ae89e2a66)
+
+
+## **Step 6: Locally Build & Run The Docker Container**
+
 Run:
+
 ```bash
 docker build -t highlight-processor .
 ```
 
+![image](https://github.com/user-attachments/assets/a837e41b-cd61-46a5-b7cc-617d38e5ba8f)
+
+
 Run the Docker Container Locally:
+
 ```bash
 docker run --env-file .env highlight-processor
 ```
-           
-This will run fetch.py, process_one_video.py and mediaconvert_process.py and the following files should be saved in your S3 bucket:
 
-Optional - Confirm there is a video uploaded to s3://<your-bucket-name>/videos/first_video.mp4
+![image](https://github.com/user-attachments/assets/810dd3ec-d2d4-4ff9-b8be-7be5123fcc5d)
 
-Optional - Confirm there is a video uploaded to s3://<your-bucket-name>/processed_videos/
+![image](https://github.com/user-attachments/assets/d5d3c568-7783-44e7-8b50-fdbea591eced)
+
+![image](https://github.com/user-attachments/assets/160f897b-5599-40c9-b324-0347379da41b)
+
+
+     
+  - **This will run fetch.py, process_one_video.py and mediaconvert_process.py and the following files should be saved in your S3 bucket:**
+
+  - Optional - Confirm there is a video uploaded to s3://<your-bucket-name>/videos/first_video.mp4
+
+![image](https://github.com/user-attachments/assets/9f90a33d-3580-44db-bc50-a2440d9af873)
+
+![image](https://github.com/user-attachments/assets/900b1c65-efea-4526-946a-3fec137325e1)
+
+![image](https://github.com/user-attachments/assets/a893ea1e-9786-46c6-bb89-dd160b35e864)
+
+
+  - Optional - Confirm there is a video uploaded to s3://<your-bucket-name>/processed_videos/
 
 ### **What We Learned**
 1. Working with Docker and AWS Services
