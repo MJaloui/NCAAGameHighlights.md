@@ -346,10 +346,15 @@ docker run --env-file .env highlight-processor
   
   
   
-  - Optional - Confirm there is a JSON file filled with highlight links, uploaded to s3://<your-bucket-name>/highlights/baseketball_highlights.json. Go back to objects.
+  - **Optional - Confirm there is a JSON file filled with highlight links, uploaded to s3://<your-bucket-name>/highlights/baseketball_highlights.json. Go back to objects.**
 
+![image](https://github.com/user-attachments/assets/6f551f84-9197-49ca-bb96-96a3000fc5b5)
 
-![image](https://github.com/user-attachments/assets/8ca3e28d-46f9-48ee-89e8-a1b4bdc1b23b)
+![image](https://github.com/user-attachments/assets/57624785-1378-4efc-be22-adeba516f572)
+
+![image](https://github.com/user-attachments/assets/12bda6ab-cc3e-4055-8b7f-2d289bf3636d)
+
+![image](https://github.com/user-attachments/assets/8a48144d-82ef-4831-9366-25b006f61aa2)
 
 
 
