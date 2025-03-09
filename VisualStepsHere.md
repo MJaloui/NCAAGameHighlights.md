@@ -367,24 +367,36 @@ docker run --env-file .env highlight-processor
 ### **Setup terraform.tfvars File**
 
 
+
 1. In the github MJaloui, repo "NCAAGameHighlights.md", there is a resources folder. Copy the entire contents.
 
 ![image](https://github.com/user-attachments/assets/5a2444bf-e81b-4b1a-aa79-5f9b1bb8f3bd)
 
 
-2. In the AWS Cloudshell or vs code terminal, create the file vpc_setup.sh and paste the script inside.
+2. In the AWS Cloudshell or vs code terminal, in the "terraform" directory, create the file vpc_setup.sh and paste the script inside. Save and exit out of the file.
 
 ```bash
 nano vpc_setup.sh
 ```
 
+![image](https://github.com/user-attachments/assets/73fb2f4b-6a98-41d1-b2f5-2d166a09731f)
+
+![image](https://github.com/user-attachments/assets/1d6b9e0d-a92e-4658-a4e1-ccb7126b8fbd)
 
 
 3. Run the script
+
 ```bash
 bash vpc_setup.sh
 ```
-4. You will see variables in the output, paste these variables into lines 8-13.
+![image](https://github.com/user-attachments/assets/7d222421-627f-4988-9d32-5944866e7916)
+
+
+
+4. You will see variables in the output, paste these variables into lines 8-13 in the "terraform.tfvars" file.
+
+
+
 5. Store your API key in AWS Secrets Manager
 ```bash
 aws ssm put-parameter \
