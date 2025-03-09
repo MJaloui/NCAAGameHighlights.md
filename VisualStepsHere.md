@@ -393,11 +393,15 @@ bash vpc_setup.sh
 
 
 
-4. You will see variables in the output, paste these variables into lines 8-13 in the "terraform.tfvars" file.
+4. You will see variables in the output, paste these variables into lines 8-13 in the "terraform.tfvars" file. Add the AWS ID for "raidapi_ssm_parameter_arn", add the "mediaconvert_endpoint" as well.
+
+ ![image](https://github.com/user-attachments/assets/cd2331ee-b6c0-4635-9281-4c13d4b4c835)
+  
 
 
 
-5. Store your API key in AWS Secrets Manager
+5. Store your API key in AWS Secrets Manager, run the command below in the CLI.
+
 ```bash
 aws ssm put-parameter \
   --name "/myproject/rapidapi_key" \
