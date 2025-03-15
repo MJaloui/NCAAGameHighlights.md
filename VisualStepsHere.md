@@ -384,7 +384,7 @@ nano vpc_setup.sh
 ![image](https://github.com/user-attachments/assets/1d6b9e0d-a92e-4658-a4e1-ccb7126b8fbd)
 
 
-3. Run the script
+3. Run the script to recieve variables.
 
 ```bash
 bash vpc_setup.sh
@@ -393,7 +393,7 @@ bash vpc_setup.sh
 
 
 
-4. You will see variables in the output, paste these variables into lines 8-13 in the "terraform.tfvars" file. Add the AWS ID for "raidapi_ssm_parameter_arn", add the "mediaconvert_endpoint" as well.
+4. You will see variables in the output, paste these variables into lines 8-13 in the "terraform.tfvars" file. Add the AWS ID for "raidapi_ssm_parameter_arn", add the "mediaconvert_endpoint" as well (you will run the command on step 6 to recieve endpoint).
 
  ![image](https://github.com/user-attachments/assets/cd2331ee-b6c0-4635-9281-4c13d4b4c835)
   
@@ -404,57 +404,110 @@ bash vpc_setup.sh
 
 ```bash
 aws ssm put-parameter \
-  --name "/myproject/rapidapi_key" \
+  --name "/YOUR_PROJECT/RAPIDAPI_KEY" \
   --value "YOUR_SECRET_KEY" \
   --type SecureString
 ```
-6.  Run the following script to obtain your mediaconvert_endpoint:
+
+![image](https://github.com/user-attachments/assets/80029afb-20e8-4628-a92c-51d34f7e3ad7)
+
+
+
+6.  Run the following script to obtain your mediaconvert_endpoint (copy and paste output in "terraform.tfvars" script, save, and exit).
+
 ```bash
 aws mediaconvert describe-endpoints
 ```
+
+![image](https://github.com/user-attachments/assets/87f57f5b-c3d1-46bb-98f0-9a59b8e6daaa)
+
+
+
 7. Leave the mediaconvert_role_arn string empty
 
-Helpful Tip for Beginners:
-1. Use the same region, project, S3 Bucketname and ECR Repo name to make following along easier. Certain steps like pushing the docker image to the ECR repo is easier to copy and paste without remember what you named your repo :)
+
 
 ### **Run The Project**
-1.  Navigate to the terraform folder/workspace in VS Code
-From the src folder
+
+1.  Navigate to the terraform directory in VS Code
+From the src folder.
+
 ```bash
 cd terraform
 ```
-2. Initialize terraform working directory
+
+2. **Initialize terraform working directory**
+
 ```bash
 terraform init
 ```
-3. Check syntax and validity of your Terraform configuration files
+
+![image](https://github.com/user-attachments/assets/e9752534-39a0-42fe-ba49-c94867e0ede0)
+
+
+
+**3. Check syntax and validity of your Terraform configuration files**
+
 ```bash
 terraform validate
 ```
-4. Display execution plan for the terraform configuration
+
+![image](https://github.com/user-attachments/assets/c7bd8d4e-ea00-45f2-9fef-2be440646c28)
+
+
+
+**4. Display execution plan for the terraform configuration**
+
+     - **Enter the value "dev" after you run the plan command.**
+
 ```bash
 terraform plan
 ```
-5. Apply changes to the desired state
+
+![image](https://github.com/user-attachments/assets/8871489c-28c5-485e-8199-e8a68ade4a85)
+
+
+
+
+**5. Apply changes to the desired state**
+
 ```bash
 terraform apply -var-file="terraform.dev.tfvars"
 ```
-6.Build the docker image for AWS deployment - ensure you are at the src folder 
+
+  - **Enter the value "dev", then "yes" for approval, after running the "apply" command.**
+
+![image](https://github.com/user-attachments/assets/a6885852-c886-4849-a400-dd859c2fc047)
+
+![image](https://github.com/user-attachments/assets/c19d94a7-181b-4961-8892-b3958871c3e0)
+
+
+
+**6. Build the docker image for AWS deployment - ensure you are at the "src" folder before running commands** 
+
 ```bash
 docker build -t highlight-pipeline:latest .
 docker tag highlight-pipeline:latest <AWS_ACCOUNT_ID>.dkr.ecr.<REGION>.amazonaws.com/highlight-pipeline:latest
 ```
-7.Log into ECR & Push
+
+![image](https://github.com/user-attachments/assets/749d90f2-92df-45a0-a81c-b9b5d5630838)
+
+![image](https://github.com/user-attachments/assets/a1832c12-92ae-4bda-b0b4-959a0e5dbfbd)
+
+
+
+7.Log into ECR & Push (add AWS ID)
+
 ```bash
 aws ecr get-login-password --region us-east-1 | \
-  docker login --username AWS --password-stdin <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com
+  docker login --username AWS --password-stdin <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com
 
 docker push <AWS_ACCOUNT_ID>.dkr.ecr.<REGION>.amazonaws.com/highlight-pipeline:latest
 ```
 
+![image](https://github.com/user-attachments/assets/63f4de28-cbed-49cb-8eaa-298050fb2779)
 
-
-
+![image](https://github.com/user-attachments/assets/53b42286-d979-4ac2-956b-523fbae7e5bb)
 
 
 
