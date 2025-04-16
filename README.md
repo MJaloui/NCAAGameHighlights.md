@@ -76,22 +76,13 @@
 2. **Add API Key to AWS Secrets Manager**
 
 3. **Create IAM Role or User**  
-   - Add permissions: `AmazonS3FullAccess`, `MediaConvertFullAccess`
+   - Add permissions: AmazonS3FullAccess, MediaConvertFullAccess
 
 4. **Update .env File**
 
 5. **Secure the .env File**  
-   ```bash
-   chmod 600 .env
-   ```
 
 6. **Build & Run Docker Container Locally**  
-   ```bash
-   docker build -t highlight-processor .
-   docker run --env-file .env highlight-processor
-   ```
-
-   ✅ This will run `fetch.py`, `process_one_video.py`, and `mediaconvert_process.py`.
 
 7. **Optional – Confirm there is a video uploaded to:**  
 
@@ -99,7 +90,7 @@
 
     - `s3:///<your-bucket-name>/processed_videos/`  
 
----
+
 
 ## **✔️ Keynotes ✔️**
 
@@ -109,7 +100,7 @@
 
 3. How to enhance media quality  
 
----
+
 
 ## **🌱 Opportunitues for Growth 🌱**
 
@@ -125,19 +116,19 @@
 
 ### Setup `terraform.tfvars` File
 
-1. Copy contents from the `Resources` folder in the GitHub repo  
+1. Copy contents from the "Resources" folder in the GitHub repo  
 
-2. In AWS CloudShell or VS Code terminal, create the file `vpc_setup.sh` and paste the script inside  
+2. In AWS CloudShell or VS Code terminal, create the file "vpc_setup.sh" and paste the script inside  
 
-3. Run the script and paste these variables into the `terraform.tfvars` file  
+3. Run the script and paste these variables into the "terraform.tfvars" file  
 
 4. Store your API key in AWS Secrets Manager  
 
-5. Run AWS script to obtain your `mediaconvert_endpoint`  
+5. Run AWS script to obtain your "mediaconvert_endpoint"  
 
-6. Leave the `mediaconvert_role_arn` string empty  
+6. Leave the "mediaconvert_role_arn" string empty  
 
----
+
 
 ### Run The Project
 
@@ -159,7 +150,7 @@
 
 9. Confirm Video Files were created  
 
----
+
 
 ## **✔️ Keynotes ✔️**
 
@@ -171,7 +162,7 @@
 
 4. SSM for saving secrets and pulling into Terraform  
 
----
+
 
 ## **🌱 Opportunitues for Growth 🌱**
 
