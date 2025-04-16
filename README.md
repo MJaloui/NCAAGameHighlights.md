@@ -33,7 +33,7 @@
 🔹 Deploys infrastructure with Terraform for repeatable, scalable environments  
 🔹 Runs inside a Docker container for easy portability and setup  
 
----
+
 
 ## 🚨 Technologies 🚨
 
@@ -64,7 +64,7 @@
 
 4. Retrieve AWS Access & Secret Keys  
 
----
+
 
 ### **Steps:** ➡️❗ [Click Here To View Detailed Visual Steps](https://github.com/MJaloui/NCAAGameHighlights.md/blob/main/VisualStepsHere.md) ❗⬅️
 
