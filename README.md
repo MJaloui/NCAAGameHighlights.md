@@ -1,7 +1,7 @@
 # NCAA Game Highlights
 
 
-![image](https://github.com/user-attachments/assets/cd0982fe-f3e9-4150-9245-64a3394fa239)
+![image](https://github.com/user-attachments/assets/6e651781-b306-44ef-a03e-e674a5be9b99)
 
 ---
 
