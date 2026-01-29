@@ -7,7 +7,7 @@
 
 ## 🔷 Project Highlights 🔷
 
-🏀 This project pulls NCAA basketball game highlights using the RapidAPI and processes them in a fully containerized environment.  
+🏀 This project pulls NCAA basketball game highlights using the RapidAPI and processes them in a fully containerized environment. 
 
 📦 It uses Docker for packaging and deployment, making it easy to run anywhere, and Terraform to automatically set up AWS infrastructure like S3 buckets, IAM roles, and ECS.  
 
